@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 // Replace 'your_connection_string' with your MongoDB Atlas connection string or local MongoDB connection string
-const connectionString = 'mongodb+srv://CocktailTest:Fantasy719@cocktail-pwa.wf9yxo3.mongodb.net';
+const connectionString = 'mongodb+srv://CocktailTest:Fantasy719!@cocktail-pwa.wf9yxo3.mongodb.net/?retryWrites=true&w=majority';
 
 // Connect to MongoDB
 mongoose.connect(connectionString, {
