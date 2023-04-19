@@ -13,13 +13,17 @@ app.use(cors());
 // Routes
 // Get all cocktails
 app.get('/api/cocktails', async (req, res) => {
-    try {
-      const cocktails = await Cocktail.find();
-      res.json(cocktails);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+  try {
+    console.log('Fetching all cocktails...');
+    const cocktails = await Cocktail.find();
+    console.log('Cocktails fetched:', cocktails);
+    res.json(cocktails);
+  } catch (error) {
+    console.error('Error fetching cocktails:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 // Get cocktails by ingredient
 app.get('/api/cocktails/search/:ingredient', async (req, res) => {
@@ -42,6 +46,8 @@ app.get('/api/cocktails/search/:ingredient', async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   });  
+
+
 
 // Start the server
 const PORT = process.env.PORT || 5000;
