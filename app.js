@@ -1,26 +1,10 @@
-// Add this line at the top of app.js
 const Cocktail = require('./models/Cocktail');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const db = require('./db'); // Import the db object from db.js
 
 const app = express();
-
-// Replace 'your_connection_string' with your MongoDB Atlas connection string or local MongoDB connection string
-const connectionString = 'mongodb+srv://CocktailTest:Fantasy719!@cocktail-pwa.wf9yxo3.mongodb.net/?retryWrites=true&w=majority';
-
-// Connect to MongoDB
-mongoose.connect(connectionString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('Connected to MongoDB!');
-});
 
 // Middleware
 app.use(express.json());
